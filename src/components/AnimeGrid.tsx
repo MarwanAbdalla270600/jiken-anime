@@ -2,11 +2,11 @@ import useAnimes from "../hooks/useAnimes"
 
 function AnimeGrid() {
 
-    const {data, error, loading} = useAnimes()
+    const {animes, error, loading} = useAnimes()
 
-    return <ul>
-        {data?.map(anime => <li>{anime.title}</li>)}
-    </ul>
+    return <>
+      {animes.map(anime=><img width={300} src={anime.image}></img>)}
+    </>
 
 }
 
