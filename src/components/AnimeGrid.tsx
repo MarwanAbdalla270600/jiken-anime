@@ -1,12 +1,13 @@
 import useAnimes from "../hooks/useAnimes"
+import AnimeCard from "./AnimeCard"
 
 function AnimeGrid() {
 
     const {animes, error, loading} = useAnimes()
 
-    return <>
-      {animes.map(anime=><img width={300} src={anime.image}></img>)}
-    </>
+    return <div className="grid grid-cols-[repeat(auto-fit,minmax(225px,1fr))] gap-4">
+      {animes.map(anime=><AnimeCard anime={anime}></AnimeCard>)}
+    </div>
 
 }
 

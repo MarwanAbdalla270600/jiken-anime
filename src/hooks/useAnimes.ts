@@ -1,14 +1,7 @@
+import { AnimeApiResponse } from "../services/api-modals";
 import useData from "./useData";
 
-export interface AnimeApiResponse {
-  title: string;
-  type: string | null;
-  episodes: number;
-  status: string | null;
-  url: string;
-  images: { webp: { large_image_url: string } };
-  background: string | null;
-}
+
 
 export interface Anime {
   title: string;
@@ -18,16 +11,18 @@ export interface Anime {
 
 export interface AnimeQuery {}
 
-const useAnimes = () => {
-  const { data, error, loading } = useData<AnimeApiResponse>("anime");
-  const animes: Anime[] = data
-    ? data.map((x) => ({
+
+function animeMapper(mappingObject: AnimeApiResponse[]): Anime[] {
+    return mappingObject? mappingObject.map(x=>({
         title: x.title,
         type: x.type,
-        image: x.images.webp.large_image_url || '',
-      }))
-    : [];
+        image: x.images.webp.large_image_url
+    })): []
+}
 
+const useAnimes = () => {
+  const { data, error, loading } = useData<AnimeApiResponse>("anime");
+  const animes = animeMapper(data)
   return { animes, error, loading };
 };
 
