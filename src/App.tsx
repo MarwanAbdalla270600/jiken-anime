@@ -1,5 +1,5 @@
 import './App.css'
-import AnimeGrid from './components/animeGrid'
+import AnimeGrid from './components/AnimeGrid'
 
 function App() {
 

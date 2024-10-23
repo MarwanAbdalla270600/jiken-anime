@@ -4,6 +4,6 @@ export interface AnimeApiResponse {
     episodes: number;
     status: string | null;
     url: string;
-    images: { webp: { large_image_url: string } };
+    images: { webp: { image_url: string } };
     background: string | null;
 }

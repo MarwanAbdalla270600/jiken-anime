@@ -7,13 +7,14 @@ interface Props {
 function AnimeCard({ anime }: Props) {
   return (
     <div className="flex p-2 border rounded-md">
-        <img
+      <div className="rounded-md ">
+      <img
           src={anime.image}
           alt="Movie"
-    
-          className="w-24 h-32 rounded-md"
-        />
-      <div className="flex flex-col justify-between w-auto">
+            />
+      </div>
+        
+      <div className="flex flex-col justify-between w-auto p-2">
         <h2 className="">{anime.title}</h2>
         
       </div>

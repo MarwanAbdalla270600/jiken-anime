@@ -14,9 +14,8 @@ export interface AnimeQuery {}
 
 function animeMapper(mappingObject: AnimeApiResponse[]): Anime[] {
     return mappingObject? mappingObject.map(x=>({
-        title: x.title,
-        type: x.type,
-        image: x.images.webp.large_image_url
+        ...x,
+        image: x.images.webp.image_url
     })): []
 }
 
